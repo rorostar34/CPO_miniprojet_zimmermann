@@ -4,17 +4,17 @@
  */
 package cpo_miniprojet_zimmermann;
 
-/**
- *
- * @author 33669
- */
-public class CPO_miniprojet_Zimmermann {
 
-    /**
-     * @param args the command line arguments
-     */
+
+import demineur.Partie;
+
+public class CPO_miniprojet_Zimmermann {
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Créer et démarrer la partie
+        Partie partie = new Partie(5, 5, 5); // Grille 5x5 avec 5 bombes
+        partie.demarrerPartie();
     }
-    
 }
+
+
+
