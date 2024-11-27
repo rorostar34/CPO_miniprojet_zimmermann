@@ -1,6 +1,5 @@
 package cpo_miniprojet_zimmermann;
 
-import cpo_miniprojet_zimmermann.GrilleDeJeu;
 import java.util.Scanner;
 
 public class Partie {
@@ -45,11 +44,23 @@ public class Partie {
             return;
         }
 
+        // Révéler la cellule
         grille.revelerCelluleParCoordonnees(ligne, colonne);
 
+        // Vérifier si la cellule contient une bombe
         if (grille.matriceCellules[ligne][colonne].getPresenceBombe()) {
             System.out.println("BOUM ! Vous avez touché une bombe. Game Over !");
             jeuTermine = true;
+        } else {
+            // Obtenir le nombre de bombes adjacentes
+            int bombesAdjacentes = grille.matriceCellules[ligne][colonne].getNbBombesAdjacentes();
+
+            // Fournir des messages spécifiques au joueur
+            if (bombesAdjacentes > 0) {
+                System.out.println("Attention ! Il y a " + bombesAdjacentes + " bombe(s) autour de cette position.");
+            } else {
+                System.out.println("Vous êtes en sécurité. Il n'y a aucune bombe autour de cette position.");
+            }
         }
     }
 }
