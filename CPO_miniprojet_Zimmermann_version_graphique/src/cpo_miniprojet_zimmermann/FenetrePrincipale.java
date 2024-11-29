@@ -1,27 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package cpo_miniprojet_zimmermann;
 
 import javax.swing.JButton;
 
-/**
- *
- * @author 33669
- */
 public class FenetrePrincipale extends javax.swing.JFrame {
+
+    // Ajout des attributs
+    private GrilleDeJeu grille; // Grille de jeu
+    private int nbCoups;        // Nombre de coups
 
     /**
      * Creates new form FenetrePrincipale
      */
     public FenetrePrincipale() {
+        // Initialisation des attributs
+        this.grille = new GrilleDeJeu(16, 16, 40); // Exemple : une grille 16x16 avec 40 bombes
+        this.nbCoups = 0;                          // Nombre de coups initialisé à 0
+
         initComponents();
-        for (int i=0; i<16; i++) {
+
+        // Exemple : Générer des boutons correspondant à la grille
+        for (int i = 0; i < 16; i++) {
             JButton nouveauBouton = new javax.swing.JButton();
-            nouveauBouton.setText("B"+i);
+            nouveauBouton.setText("B" + i);
             jPanel1.add(nouveauBouton);
-    }
+        }
     }
 
     /**
@@ -36,25 +38,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new java.awt.GridLayout(4, 4));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 38, 641, 336));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
