@@ -4,6 +4,8 @@
  */
 package cpo_miniprojet_zimmermann;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author 33669
@@ -15,8 +17,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     public FenetrePrincipale() {
         initComponents();
-        for (int=0; i<16; i++) {
-            JBouton nouveauBouton = new javax.swing.JButton();
+        for (int i=0; i<16; i++) {
+            JButton nouveauBouton = new javax.swing.JButton();
             nouveauBouton.setText("B"+i);
             jPanel1.add(nouveauBouton);
     }
