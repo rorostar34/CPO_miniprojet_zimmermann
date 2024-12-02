@@ -13,7 +13,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     public FenetrePrincipale() {
         // Initialisation des attributs
-        this.grille = new GrilleDeJeu(16, 16, 40); // Exemple : une grille 16x16 avec 40 bombes
+        this.grille = new GrilleDeJeu(4, 4, 5); // Exemple : une grille 16x16 avec 40 bombes
         this.nbCoups = 0;                          // Nombre de coups initialisé à 0
 
         initComponents();
@@ -22,7 +22,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         // Exemple : Générer des boutons correspondant à la grille
         for (int i = 0; i < 4; i++) {
             for (int j=0; j<4; j++) {
-           ¨    Cellule_Graphique b = new Cellule_Graphique(i,j);
+                Cellule_Graphique b = new Cellule_Graphique(i, j, grille.matriceCellules[i][j]);
                 jPanel1.add(b);
         }
     }
