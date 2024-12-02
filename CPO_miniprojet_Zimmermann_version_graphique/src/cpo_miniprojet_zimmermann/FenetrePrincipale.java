@@ -18,14 +18,15 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         initComponents();
 
+        
         // Exemple : Générer des boutons correspondant à la grille
-        for (int i = 0; i < 16; i++) {
-            JButton nouveauBouton = new javax.swing.JButton();
-            nouveauBouton.setText("B" + i);
-            jPanel1.add(nouveauBouton);
+        for (int i = 0; i < 4; i++) {
+            for (int j=0; j<4; j++) {
+           ¨    Cellule_Graphique b = new Cellule_Graphique(i,j);
+                jPanel1.add(b);
         }
     }
-
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,7 +42,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new java.awt.GridLayout(4, 4));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 38, 641, 336));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
