@@ -11,6 +11,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     /**
      * Creates new form FenetrePrincipale
      */
+    
     Partie partie = new Partie(5, 5, 5);
     public FenetrePrincipale() {
         // Initialisation des attributs
@@ -23,6 +24,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         // Exemple : Générer des boutons correspondant à la grille
         for (int i = 0; i < 4; i++) {
             for (int j=0; j<4; j++) {
+                //Cellule  = GrilleDeJeu.revelerCelluleParCoordonnees(i, j);
                 //Cellule matriceCellules[i][j] = GrilleDeJeu.revelerCelluleParCoordonnees(i,j);
                 Cellule_Graphique b = new Cellule_Graphique(i, j, grille.matriceCellules[i][j]);
                 jPanel1.add(b);
