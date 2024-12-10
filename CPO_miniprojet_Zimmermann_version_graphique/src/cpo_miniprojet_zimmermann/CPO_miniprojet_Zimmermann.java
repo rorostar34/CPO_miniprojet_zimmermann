@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+/**
+ * Romane Zimmermann
+ * Projet Démineur
  */
 package cpo_miniprojet_zimmermann;
-
-
-
-
 
 public class CPO_miniprojet_Zimmermann {
     public static void main(String[] args) {

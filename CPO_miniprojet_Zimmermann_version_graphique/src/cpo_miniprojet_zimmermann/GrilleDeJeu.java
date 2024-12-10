@@ -1,5 +1,9 @@
-package cpo_miniprojet_zimmermann;
+/**
+ * Romane Zimmermann
+ * Projet Démineur
+ */
 
+package cpo_miniprojet_zimmermann;
 import cpo_miniprojet_zimmermann.Cellule;
 
 public class GrilleDeJeu {

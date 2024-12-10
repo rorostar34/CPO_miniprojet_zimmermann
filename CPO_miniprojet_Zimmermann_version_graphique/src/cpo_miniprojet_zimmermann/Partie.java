@@ -1,5 +1,9 @@
-package cpo_miniprojet_zimmermann;
+/**
+ * Romane Zimmermann
+ * Projet Démineur
+ */
 
+package cpo_miniprojet_zimmermann;
 import java.util.Scanner;
 
 public class Partie {
@@ -9,13 +13,16 @@ public class Partie {
     public Partie(int nbLignes, int nbColonnes, int nbBombes) {
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes, nbBombes);
         this.jeuTermine = false;
+        grille.placerBombesAleatoirement();
+        grille.calculerBombesAdjacentes();
+    }
+
+    public GrilleDeJeu getGrille() {
+        return grille;
     }
 
     public void demarrerPartie() {
         Scanner scanner = new Scanner(System.in);
-
-        grille.placerBombesAleatoirement();
-        grille.calculerBombesAdjacentes();
 
         System.out.println("Bienvenue dans le jeu de Démineur !");
         System.out.println("Voici la grille :");
@@ -44,18 +51,13 @@ public class Partie {
             return;
         }
 
-        // Révéler la cellule
         grille.revelerCelluleParCoordonnees(ligne, colonne);
 
-        // Vérifier si la cellule contient une bombe
         if (grille.matriceCellules[ligne][colonne].getPresenceBombe()) {
             System.out.println("BOUM ! Vous avez touché une bombe. Game Over !");
             jeuTermine = true;
         } else {
-            // Obtenir le nombre de bombes adjacentes
             int bombesAdjacentes = grille.matriceCellules[ligne][colonne].getNbBombesAdjacentes();
-
-            // Fournir des messages spécifiques au joueur
             if (bombesAdjacentes > 0) {
                 System.out.println("Attention ! Il y a " + bombesAdjacentes + " bombe(s) autour de cette position.");
             } else {
