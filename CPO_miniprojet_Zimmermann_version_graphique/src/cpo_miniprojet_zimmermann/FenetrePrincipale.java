@@ -38,7 +38,22 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
 
-    
+    private ActionListener creerActionListener(Cellule_Graphique bouton) {
+        return e -> {
+            Cellule cellule = bouton.cellule_associe;
+            if (!cellule.estDevoilee()) {
+                cellule.revelerCellule();
+                bouton.setText(cellule.getPresenceBombe() ? "💣" : String.valueOf(cellule.getNbBombesAdjacentes()));
+
+                if (cellule.getPresenceBombe()) {
+                    JOptionPane.showMessageDialog(this, "BOUM ! Game Over !");
+                    System.exit(0);
+                } else {
+                    verifierEtatPartie();
+                }
+            }
+        };
+    }
 
     private void verifierEtatPartie() {
         if (grille.toutesCellulesRevelees()) {
