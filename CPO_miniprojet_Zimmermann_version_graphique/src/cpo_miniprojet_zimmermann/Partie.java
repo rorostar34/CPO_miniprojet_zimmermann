@@ -44,6 +44,7 @@ public class Partie {
 
         scanner.close();
     }
+    
 
     private void revelerCelluleJoueur(int ligne, int colonne) {
         if (ligne < 0 || ligne >= grille.getNbLignes() || colonne < 0 || colonne >= grille.getNbColonnes()) {

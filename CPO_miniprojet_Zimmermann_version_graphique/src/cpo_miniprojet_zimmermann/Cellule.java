@@ -15,6 +15,13 @@ public class Cellule {
         this.devoilee = false;
         this.nbBombesAdjacentes = 0;
     }
+    public void retirerBombe() {
+    this.presenceBombe = false;
+    }
+
+    public void masquerCellule() {
+    this.devoilee = false;
+    }
 
     public boolean getPresenceBombe() {
         return presenceBombe;

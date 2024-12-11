@@ -62,6 +62,16 @@ public class GrilleDeJeu {
             }
         }
     }
+    public void reinitialiserBombes() {
+    for (int i = 0; i < nbLignes; i++) {
+        for (int j = 0; j < nbColonnes; j++) {
+            matriceCellules[i][j].retirerBombe();
+            matriceCellules[i][j].masquerCellule();
+        }
+    }
+    placerBombesAleatoirement();
+    calculerBombesAdjacentes();
+}
 
     public void revelerCelluleParCoordonnees(int ligne, int colonne) {
         if (ligne >= 0 && ligne < nbLignes && colonne >= 0 && colonne < nbColonnes) {

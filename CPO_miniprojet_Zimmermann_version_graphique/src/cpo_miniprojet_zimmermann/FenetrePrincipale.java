@@ -72,7 +72,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        RECOMMENCER = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,21 +82,27 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridLayout(4, 4));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 420, 360));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RECOMMENCER.setText("RECOMMENCER");
+        RECOMMENCER.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RECOMMENCERActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
+        getContentPane().add(RECOMMENCER, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          
+    private void RECOMMENCERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RECOMMENCERActionPerformed
+                                                                                    
+    grille.reinitialiserBombes();
+    jPanel1.removeAll();
+    initialiserGrilleGraphique();
+    jPanel1.revalidate();
+    jPanel1.repaint();
+      
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_RECOMMENCERActionPerformed
     
     /**
      * @param args the command line arguments
@@ -109,7 +115,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton RECOMMENCER;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
