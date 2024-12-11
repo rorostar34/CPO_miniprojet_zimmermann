@@ -73,6 +73,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         RECOMMENCER = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,7 +83,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel1.setLayout(new java.awt.GridLayout(4, 4));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 420, 360));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 420, 360));
 
         RECOMMENCER.setText("RECOMMENCER");
         RECOMMENCER.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +91,16 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 RECOMMENCERActionPerformed(evt);
             }
         });
-        getContentPane().add(RECOMMENCER, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, -1, -1));
+        getContentPane().add(RECOMMENCER, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, -1, -1));
+
+        jLabel1.setText("JEU DE ROMZI STAR ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 140, 40));
+
+        jLabel2.setText("BUT DU JEU : trouver toutes les cases sans tomber sur les bombes  ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 410, 20));
+
+        jLabel3.setText("le nombre dans la case indique le nombre de bombes qui se trouvent autour de cette case");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -116,6 +128,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton RECOMMENCER;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
