@@ -72,6 +72,7 @@ public class GrilleDeJeu {
     placerBombesAleatoirement();
     calculerBombesAdjacentes();
 }
+    
 
     public void revelerCelluleParCoordonnees(int ligne, int colonne) {
         if (ligne >= 0 && ligne < nbLignes && colonne >= 0 && colonne < nbColonnes) {
