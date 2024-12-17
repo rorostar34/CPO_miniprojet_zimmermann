@@ -24,6 +24,25 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         setSize(600, 600); // Ajuster la taille de la fenêtre
         jPanel1.setLayout(null); // Utilisation de null layout pour positionnement absolu
     }
+    private void mettreAJourGrilleGraphique() {
+    for (int i = 0; i < grille.getNbLignes(); i++) {
+        for (int j = 0; j < grille.getNbColonnes(); j++) {
+            Cellule cellule = grille.matriceCellules[i][j];
+            Cellule_Graphique bouton = (Cellule_Graphique) jPanel1.getComponent(i * grille.getNbColonnes() + j);
+
+            if (cellule.estDevoilee()) {
+                if (cellule.getPresenceBombe()) {
+                    bouton.setText("💣");
+                } else {
+                    bouton.setText(String.valueOf(cellule.getNbBombesAdjacentes()));
+                }
+            } else {
+                bouton.setText("");
+            }
+        }
+    }
+}
+
 
     private void initialiserGrilleGraphique() {
         for (int i = 0; i < grille.getNbLignes(); i++) {
@@ -39,21 +58,36 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     private ActionListener creerActionListener(Cellule_Graphique bouton) {
-        return e -> {
-            Cellule cellule = bouton.cellule_associe;
-            if (!cellule.estDevoilee()) {
-                cellule.revelerCellule();
-                bouton.setText(cellule.getPresenceBombe() ? "💣" : String.valueOf(cellule.getNbBombesAdjacentes()));
+    return e -> {
+        int ligne = bouton.x;
+        int colonne = bouton.y;
 
-                if (cellule.getPresenceBombe()) {
-                    JOptionPane.showMessageDialog(this, "BOUM ! Game Over !");
+        Cellule cellule = grille.matriceCellules[ligne][colonne];
+
+        if (!cellule.estDevoilee()) {
+            if (cellule.getPresenceBombe()) {
+                // Bombe cliquée : afficher un message de défaite
+                bouton.setText("💣");
+                JOptionPane.showMessageDialog(this, "BOUM ! Game Over !");
+                System.exit(0);
+            } else {
+                // Révéler les cellules (logique)
+                grille.revelerCelluleParCoordonnees(ligne, colonne);
+
+                // Mettre à jour l'interface graphique
+                mettreAJourGrilleGraphique();
+
+                // Vérifier si toutes les cellules non-bombes sont dévoilées
+                if (grille.toutesCellulesRevelees()) {
+                    JOptionPane.showMessageDialog(this, "Félicitations, vous avez gagné !");
                     System.exit(0);
-                } else {
-                    verifierEtatPartie();
                 }
             }
-        };
-    }
+        }
+    };
+}
+
+
 
     private void verifierEtatPartie() {
         if (grille.toutesCellulesRevelees()) {

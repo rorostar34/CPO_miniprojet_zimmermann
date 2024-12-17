@@ -75,18 +75,38 @@ public class GrilleDeJeu {
     
 
     public void revelerCelluleParCoordonnees(int ligne, int colonne) {
-        if (ligne >= 0 && ligne < nbLignes && colonne >= 0 && colonne < nbColonnes) {
-            Cellule cellule = matriceCellules[ligne][colonne];
-            if (!cellule.estDevoilee()) {
-                cellule.revelerCellule();
-                System.out.println("Cellule dévoilée aux coordonnées : (" + ligne + ", " + colonne + ")");
-            } else {
-                System.out.println("Cellule déjà dévoilée.");
+    // Vérification des coordonnées valides
+    if (ligne >= 0 && ligne < nbLignes && colonne >= 0 && colonne < nbColonnes) {
+        Cellule cellule = matriceCellules[ligne][colonne];
+
+        // Si la cellule est déjà dévoilée, on ne fait rien
+        if (cellule.estDevoilee()) {
+            return;
+        }
+
+        // Révéler la cellule
+        cellule.revelerCellule();
+        System.out.println("Cellule dévoilée aux coordonnées : (" + ligne + ", " + colonne + ")");
+
+        // Si c'est une bombe, on arrête la propagation
+        if (cellule.getPresenceBombe()) {
+            return;
+        }
+
+        // Si la cellule contient un 0, révéler les cellules adjacentes
+        if (cellule.getNbBombesAdjacentes() == 0) {
+            for (int x = -1; x <= 1; x++) {
+                for (int y = -1; y <= 1; y++) {
+                    if (x != 0 || y != 0) { // Éviter de réévaluer la cellule actuelle
+                        revelerCelluleParCoordonnees(ligne + x, colonne + y);
+                    }
+                }
             }
-        } else {
-            System.out.println("Coordonnée invalide.");
         }
     }
+}
+
+
 
     @Override
     public String toString() {
