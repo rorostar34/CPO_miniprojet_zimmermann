@@ -22,9 +22,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         
         // Redimensionner la fenêtre pour qu'elle soit plus grande
         setSize(600, 600); // Ajuster la taille de la fenêtre
-        jPanel1.setLayout(null); // Utilisation de null layout pour positionnement absolu
+        //jPanel1.setLayout(null); // Utilisation de null layout pour positionnement absolu
     }
     private void mettreAJourGrilleGraphique() {
+
     for (int i = 0; i < grille.getNbLignes(); i++) {
         for (int j = 0; j < grille.getNbColonnes(); j++) {
             Cellule cellule = grille.matriceCellules[i][j];
@@ -45,13 +46,15 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
 
     private void initialiserGrilleGraphique() {
+            jPanel1.setLayout(new java.awt.GridLayout(grille.getNbLignes(), grille.getNbColonnes()));
+
         for (int i = 0; i < grille.getNbLignes(); i++) {
             for (int j = 0; j < grille.getNbColonnes(); j++) {
                 Cellule_Graphique bouton = new Cellule_Graphique(i, j, grille.matriceCellules[i][j]);
                 bouton.addActionListener(creerActionListener(bouton));
 
                 // Augmenter la taille des cellules
-                bouton.setBounds(j * 89, i * 75, 65, 70); // Cellule plus grande (70px de largeur et hauteur)
+               // bouton.setBounds(j * 89, i * 75, 65, 70); // Cellule plus grande (70px de largeur et hauteur)
                 jPanel1.add(bouton); // Ajouter chaque bouton à jPanel1
             }
         }
@@ -182,7 +185,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(() -> {
-            Partie partie = new Partie(5, 5, 4); // Exemple avec une grille 5x5 et 5 bombes
+            Partie partie = new Partie(10, 10, 10); // Exemple avec une grille 5x5 et 5 bombes
             new FenetrePrincipale(partie).setVisible(true);
         });
     }
