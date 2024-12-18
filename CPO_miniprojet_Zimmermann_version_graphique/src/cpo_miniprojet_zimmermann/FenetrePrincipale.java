@@ -53,8 +53,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 Cellule_Graphique bouton = new Cellule_Graphique(i, j, grille.matriceCellules[i][j]);
                 bouton.addActionListener(creerActionListener(bouton));
 
-                // Augmenter la taille des cellules
-               // bouton.setBounds(j * 89, i * 75, 65, 70); // Cellule plus grande (70px de largeur et hauteur)
                 jPanel1.add(bouton); // Ajouter chaque bouton à jPanel1
             }
         }
@@ -124,7 +122,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel1.setLayout(new java.awt.GridLayout(4, 4));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 420, 360));
 
