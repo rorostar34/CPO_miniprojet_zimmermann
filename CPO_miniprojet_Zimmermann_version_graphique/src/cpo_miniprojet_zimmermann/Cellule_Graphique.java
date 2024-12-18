@@ -9,6 +9,8 @@ public class Cellule_Graphique extends JButton {
     int x;
     int y;
     Cellule cellule_associe;
+    
+    
 
     public Cellule_Graphique(int x, int y, Cellule cellule_associe) {
         this.x = x;
